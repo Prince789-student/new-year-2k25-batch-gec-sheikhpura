@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Small New Year Greeting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .box {
+    padding: 25px;
+    max-width: 750px;
+  }
+
+  .open-btn {
+    padding: 16px 40px;
+    font-size: 22px;
+    border: none;
+    border-radius: 30px;
+    background: #ffd369;
+    color: #000;
+    cursor: pointer;
+    animation: pulse 1.6s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  .surprise {
+    display: none;
+    animation: fadeIn 1.6s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-size: 36px;
+    margin: 12px 0;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #ffd369;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .from {
+    margin-top: 30px;
+    font-size: 18px;
+    opacity: 0.95;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music (Soft, Neutral) -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box" id="startBox">
+  <button class="open-btn" onclick="openSurprise()">🎁 Open Message</button>
+</div>
+
+<div class="box surprise" id="surpriseBox">
+  <h2>Warm Greetings ✨</h2>
+  <h1>Happy New Year 2026 🎉</h1>
+
+  <p>
+    Naya saal aapke jeevan me<br>
+    positivity, good health<br>
+    aur nayi opportunities le kar aaye.<br><br>
+
+    Beete hue saal ke anubhav<br>
+    aur aane wale saal ke sapne<br>
+    dono hi humein behtar banayein.
+  </p>
+
+  <div class="from">
+    With best wishes,<br>
+    <b>Prince Kumar</b>
+  </div>
+</div>
+
+<script>
+function openSurprise() {
+  document.getElementById("startBox").style.display = "none";
+  document.getElementById("surpriseBox").style.display = "block";
+  document.getElementById("bgMusic").play();
+}
+</script>
+
+</body>
+</html>
