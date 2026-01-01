@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Open Surprise 🎁</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .box {
+    padding: 20px;
+  }
+
+  .open-btn {
+    padding: 16px 40px;
+    font-size: 22px;
+    border: none;
+    border-radius: 35px;
+    background: #ffd700;
+    color: #000;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .surprise {
+    display: none;
+    animation: fadeIn 1.5s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  h1 {
+    font-size: 42px;
+    margin: 10px 0;
+  }
+
+  h2 {
+    font-size: 26px;
+    color: #ffd700;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    opacity: 0.95;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .from {
+    margin-top: 25px;
+    font-size: 18px;
+    opacity: 0.9;
+  }
+
+  .firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 1.5s infinite;
+  }
+
+  @keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(4); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box" id="startBox">
+  <button class="open-btn" onclick="openSurprise()">🎁 Open Surprise</button>
+</div>
+
+<div class="box surprise" id="surpriseBox">
+  <h2>GEC Sheikhpura</h2>
+  <h3>Dear 2K25 Batch ❤️</h3>
+
+  <h1>🎉 Happy New Year 2026 🎉</h1>
+
+  <p>
+    Ye saal aap sabke liye<br>
+    growth, success aur strong memories le kar aaye ✨<br><br>
+    College life ka har moment yaadgar bane,<br>
+    aur future bright ho 🚀
+  </p>
+
+  <div class="from">
+    — Best Wishes from <b>Prince Kumar</b>
+  </div>
+</div>
+
+<script>
+function openSurprise() {
+  document.getElementById("startBox").style.display = "none";
+  document.getElementById("surpriseBox").style.display = "block";
+
+  const music = document.getElementById("bgMusic");
+  music.play();
+
+  setInterval(() => {
+    const fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * window.innerWidth + "px";
+    fw.style.top = Math.random() * window.innerHeight + "px";
+    fw.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1500);
+  }, 200);
+}
+</script>
+
+</body>
+</html>
